@@ -81,16 +81,16 @@ class TransactionalEmails(Base):
         """
 
         try:
-            content = data['email']['body']
+            content = data['body']
             if content is not None:
-                data['email']['body'] = base64.b64encode(bytes(data['email']['body']))
+                data['body'] = base64.b64encode(bytes(data['body']))
         except KeyError:
             pass
 
         try:
-            archive = data['email']['plain_text']
+            archive = data['plain_text']
             if archive is not None:
-                data['email']['plain_text'] = base64.b64encode(bytes(data['email']['plain_text']))
+                data['plain_text'] = base64.b64encode(bytes(data['plain_text']))
         except KeyError:
             pass
 
